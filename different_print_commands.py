@@ -1,0 +1,5 @@
+print('welcome to the world of programming')
+print(7477487748465858)
+print('welcome \n all')
+print('kjdhhrurhfh',8578468468)
+print('the end',end='!')
