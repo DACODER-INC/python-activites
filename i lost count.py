@@ -1,0 +1,3 @@
+a = 'codingal'
+r = a[::-1]
+print(r)
