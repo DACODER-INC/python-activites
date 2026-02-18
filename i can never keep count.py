@@ -1,0 +1,2 @@
+congratulations_message = 'congrats_my_friend_you_won_a_gold_in_the_state_championship'
+print(congratulations_message.upper())
