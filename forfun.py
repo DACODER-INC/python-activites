@@ -31,6 +31,6 @@ elif age == 19:
     print('You can drink and vote in ontario ')
 else:
     print('You are an adult and you can do whatever you want ')
-if age > 80:
+if age >= 90:
     print('You are probably dead ')
 
