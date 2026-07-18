@@ -1,19 +1,9 @@
-import math #importing math module
-
-#using ceil and floor functiom of math module
-
-print('The Floor and Ceiling value of 23.56 are: ' + str(math.ceil(23.56)) + ', ' + str(math.floor(23.56)))
-
-x = 10
-
-y = -15
-
-#using copysign function
-
-print('The value of x after copying the sign from y is: ' + str(math.copysign(x, y)))
-
-#using fabs and gcd function
-
-print('Absolute value of -96 and 56 are: ' + str(math.fabs(-96)) + ', ' + str(math.fabs(56)))
-
-print('The GCD of 24 and 56 : ' + str(math.gcd(24, 56)))
+elist = []
+print(elist)
+list = [1, 2, 2, 333333333333, 48738472345236545236473,'hello', 'hcjibdcbcibdidd']
+print(list)
+mlist = [1, 2, 3, 3, 4] * 3
+print(mlist)
+tsil = [1,2,3,4,5,6,7,8,9,0]
+tsil = tsil[::-1]
+print(tsil)
