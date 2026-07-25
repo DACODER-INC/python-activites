@@ -34,3 +34,28 @@ def match_marks(mark_list):
  
 same_digit_count = match_marks([88, 72, 99, 65, 77])
 print("Number of matching marks:", same_digit_count)
+
+total = 0
+for grade in grades:
+    total += grade
+
+    average = total / len(grades)
+
+    print('Sum of marks', total)
+    print('average is ', average)
+
+    grades.sort()
+
+    print('The lowest mark is ', grades[0])
+    print('The highest mark is ', grades[-1])
+
+    print("")
+print("===== STUDENT MARKS LIST ANALYZER =====")
+print("Sorted Marks:", grades)
+print("Total Marks:", total)
+print("Average Marks:", average)
+print("Lowest Mark:", grades[0])
+print("Highest Mark:", grades[-1])
+print("=======================================")
+
+
