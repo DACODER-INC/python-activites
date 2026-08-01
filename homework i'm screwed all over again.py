@@ -24,4 +24,35 @@ print(student_data)
 student_data['id2']['subject'] = 'english, math, coding'
 print('')
 print('After changing id2')
+print(student_data['id2'])
+
+
+cleaned_data = {}
+seen_records = []
+
+for student_id, details in student_data.items():
+    unique_key = (details['name'], details["class"], details['subject'])
+    if unique_key not in seen_records:
+        seen_records.append(unique_key)
+        cleaned_data[student_id] = details
+student_data = cleaned_data
+print('')
+print('Afetr removing duplicate student ids')
 print(student_data)
+
+removed_student = student_data.pop('id4', 'Not found')
+print('')
+print('removed student')
+print(removed_student)
+
+print('')
+print('total student records left:', len(student_data))
+
+
+print("")
+print("===== FINAL STUDENT SUBJECT RECORDS =====")
+ 
+for student_id, details in student_data.items():
+    print(student_id, ":", details)
+ 
+print("==========================================")
