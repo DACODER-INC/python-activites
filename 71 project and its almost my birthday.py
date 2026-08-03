@@ -39,7 +39,7 @@ else:
 
 cvv = int(input('Enter you cvv'))
 exp_date = input('Enter the exp date in this format mm/yyyy')
-print('Purchase completed welcome to the apple ecosystem')
+print('Purchase completed, Welcome to the Apple ecosystem')
 
 
 print("")
