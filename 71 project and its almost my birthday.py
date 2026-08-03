@@ -7,7 +7,7 @@ print('Full inventory is', inventory)
 in_stock_items = [item for item in items if inventory[item] > 0]
 print('\n the items in stock are ', in_stock_items)
 
-picked_items = input('Which item do you want to buy?')
+picked_items = input('Which item do you want to buy?').lower()
 if picked_items not in inventory or inventory[picked_items] == 0:
     print('chosen item is either out of stock or doesnt exit so i am stopping the checker')
     exit()
