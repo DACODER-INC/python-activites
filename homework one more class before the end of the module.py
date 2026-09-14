@@ -58,3 +58,6 @@ for device in devices:
     device.check_status()
  
 print("===============================")
+
+
+# I am sorry about the last project i will try to fix it and i can not re post it on codingal but it will update on github so please check there mrs thank you
