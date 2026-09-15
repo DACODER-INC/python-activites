@@ -7,7 +7,12 @@ class Account:
         print('Account holder is:', self.owner)    
         print('The pin is safely secured')
 
-    
+    def set_pin(self, new_pin):
+        if len(new_pin) == 4 and new_pin.isdigit():
+            self.__pin = new_pin
+            print('PIN updated succsesfully')
+        else:
+            print('INVALID PIN must be four digits ONLY')
 
     def check_pin(self, entered_pin):
         if entered_pin == self.__pin:
