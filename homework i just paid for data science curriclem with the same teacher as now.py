@@ -33,10 +33,68 @@ class Car(pygame.sprite.Sprite):
         sensor_triggered = False
 
         if self.rect.left <= 0 or self.rect.right >= 600:
-            self.velocity[0] = self.velocity[0]
+            self.velocity[0] = -self.velocity[0]
             sensor_triggered = True
 
         if sensor_triggered:
             pygame.event.post(pygame.event.Event(CAR_COLOR_CHANGE_EVENT))
 
-            pygame.event.post(pygame.event.Event)
+            pygame.event.post(pygame.event.Event(SIGNAL_CHANGE_EVENT))
+
+    def change_color(self):
+        self.image.fill(random.choice([WHITE, YELLOW, BLUE, ORANGE]))
+
+def change_signal():
+    global signal_color
+
+    if signal_color == RED:
+        signal_color = GREEN
+
+    else:
+        signal_color = RED
+all_sprites = pygame.sprite.Group()
+
+car = Car(WHITE, 70, 35)
+
+car.rect.x = 50
+car.rect.y = 300
+
+all_sprites.add(car)
+
+screen = pygame.display.set_mode((600, 400))
+pygame.display.set_caption('Road RP')
+
+signal_color = RED
+
+clock = pygame.time.Clock()
+
+running = True
+
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+        elif event.type == CAR_COLOR_CHANGE_EVENT:
+            car.change_color()
+
+        elif event.type == SIGNAL_CHANGE_EVENT:
+            change_signal() 
+
+    all_sprites.update()
+    screen.fill(ROAD)
+
+    for x in range(0, 600, 80):
+        pygame.draw.rect(screen, WHITE, (x, 345, 45, 5))
+
+    pygame.draw.rect(screen, pygame.Color('black'), (275, 40, 50, 90))
+
+    pygame.draw.circle(screen, signal_color, (300, 85), 20)
+
+    all_sprites.draw(screen)
+
+    pygame.display.flip()
+
+    clock.tick(60)
+
+pygame.quit()
