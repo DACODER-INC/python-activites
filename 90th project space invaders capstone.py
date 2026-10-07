@@ -51,7 +51,7 @@ font = pygame.font.SysFont('ariel.ttf', 32)
 textX = 10
 textY = 10
 
-over_font = pygame.font.SysFont('ariel.ttf', 64)
+over_font = pygame.font.SysFont('arial.ttf', 64)
 def show_score(x, y):
     score = font.render("Score : " + str(score_value), True, (255, 255, 255))
     screen.blit(score, (x, y))
