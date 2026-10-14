@@ -6,6 +6,9 @@ SCREEN_WIDTH, SCREEN_HEIGHT = 800, 600
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.init()
 
+background = pygame.image.load(r"C:\Users\Navraj- PC\Downloads\47183.jpg")
+background = pygame.transform.scale(background, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
 clock = pygame.time.Clock()
 
 class Player(pygame.sprite.Sprite):
@@ -51,6 +54,9 @@ for i in range(7):
     score = 0
     font = pygame.font.Font(None, 100)
 
+pygame.mixer.music.load(r"C:\Users\Navraj- PC\OneDrive\Documents\project music\MyRec_1014_1922.mp3")
+pygame.mixer.music.play(-1)
+pygame.mixer.music.set_volume(0.5)
 running = True
 while running:
     for event in pygame.event.get():
@@ -69,7 +75,7 @@ while running:
             enemy_group.add(enemy)
 
 
-    screen.fill('black')
+    screen.blit(background, (0, 0))
 
     screen.blit(player.image, player.rect)
     enemy_group.draw(screen)
