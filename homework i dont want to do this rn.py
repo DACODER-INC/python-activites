@@ -16,16 +16,16 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT - 60)
     def update(self):
-        keys = pygame.keys.get_pressed()
+        keys = pygame.key.get_pressed()
 
         if keys[pygame.K_LEFT]:
             self.rect.x -= 5
         if keys[pygame.K_RIGHT]:
             self.rect.x += 5
         if keys[pygame.K_UP]:
-            self.rect.y += 5
-        if keys[pygame.K_DOWN]:
             self.rect.y -= 5
+        if keys[pygame.K_DOWN]:
+            self.rect.y += 5
 
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
@@ -46,6 +46,37 @@ enemy_group = pygame.sprite.Group()
 
 for i in range(7):
     enemy = Enemy()
+    enemy_group.add(enemy)
 
     score = 0
-    pygame.font.Font('VT323', 'blue', 100)
+    font = pygame.font.Font(None, 100)
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    
+    player.update()
+
+    for enemy in enemy_group:
+        if player.rect.colliderect(enemy.rect):
+            score += 1
+            enemy.kill()
+    if len(enemy_group) == 0:
+        for i in range(7):
+            enemy = Enemy()
+            enemy_group.add(enemy)
+
+
+    screen.fill('black')
+
+    screen.blit(player.image, player.rect)
+    enemy_group.draw(screen)
+
+
+    score_text = font.render('Score: ' + str(score), True, 'white')
+    screen.blit(score_text, (10, 10))
+    pygame.display.flip()
+    clock.tick(60)
+pygame.quit()
